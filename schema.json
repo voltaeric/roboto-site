@@ -1,0 +1,60 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Project Folder Tree",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "Name of the directory or file"
+        },
+        "type": {
+            "type": "string",
+            "description": "Type of node: either 'directory' or 'file'",
+            "enum": [
+                "directory",
+                "file"
+            ]
+        },
+        "children": {
+            "type": "array",
+            "description": "Child nodes, if it's a directory",
+            "items": {
+                "$ref": "#/definitions/node"
+            }
+        }
+    },
+    "required": [
+        "name",
+        "type"
+    ],
+    "definitions": {
+        "node": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the directory or file"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Type of node: either 'directory' or 'file'",
+                    "enum": [
+                        "directory",
+                        "file"
+                    ]
+                },
+                "children": {
+                    "type": "array",
+                    "description": "Child nodes, if it's a directory",
+                    "items": {
+                        "$ref": "#/definitions/node"
+                    }
+                }
+            },
+            "required": [
+                "name",
+                "type"
+            ]
+        }
+    }
+}
